@@ -1,6 +1,7 @@
 package com.springapp.mvc.controller;
 
 import com.springapp.mvc.model.Book;
+import com.springapp.mvc.model.Category;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ public class BookController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
 		model.addAttribute("message", "Click here for a List of Books");
+		model.addAttribute("message2", "Click here for a List of Categories");
 		return "index";
 	}
 	@RequestMapping(value = "/book", method = RequestMethod.GET)
@@ -28,5 +30,12 @@ public class BookController {
 		model.addAttribute("booklist", books);
 		return "book";
 	}
-
+	@RequestMapping(value = "/category", method = RequestMethod.GET)
+	public String printCategories(ModelMap model) {
+		RestTemplate restTemplate = new RestTemplate();
+		String url = "http://localhost:8001/category";
+		ArrayList<Category> categories = restTemplate.getForObject(url, ArrayList.class);
+		model.addAttribute("category", categories);
+		return "category";
+	}
 }

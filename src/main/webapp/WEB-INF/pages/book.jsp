@@ -9,17 +9,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title></title>
+    <title></title>
 </head>
 <body>
 <h1>${message}</h1>
-<h2><a href = "/">Back</a></h2>
+
+<h2><a href="/">Back to Index</a></h2>
 <table border="1" align="center" style="width:50%">
     <thead>
     <tr>
         <th>ID</th>
         <th>Title</th>
         <th>Publisher</th>
+        <th>Category</th>
         <th>Authors</th>
         <th></th>
     </tr>
@@ -30,6 +32,13 @@
             <td>${book.id}</td>
             <td>${book.bookTitle}</td>
             <td>${book.publisher}</td>
+            <td>${book.categoryDescription}</td>
+
+            <%--<td><c:forEach var="category" items="${book.categoryDescription}">--%>
+                <%--<table>--%>
+                    <%--<tr>${category.description}<%=" "%></tr>--%>
+                <%--</table>--%>
+            <%--</c:forEach></td>--%>
             <td><c:forEach var="author" items="${book.authors}">
                 <table>
                     <tr>${author.firstName}<%=" "%></tr>

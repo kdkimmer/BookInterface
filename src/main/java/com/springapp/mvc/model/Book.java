@@ -1,5 +1,6 @@
 package com.springapp.mvc.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,22 +8,20 @@ import java.util.List;
  */
 public class Book {
     private String bookTitle;
-    private int categoryId;
+    private String categoryDescription;
     private String publisher;
     private List<Author> authors;
     private int id;
-
-
-
+    private ArrayList<Category> categories = new ArrayList<Category>();
 
 
     public Book(int Id) {
         this.id = Id;
     }
 
-    public Book(int Id, int categoryId, String publisher, String bookTitle) {
+    public Book(int Id, String categoryDescription, String publisher, String bookTitle) {
         this.id = Id;
-        this.categoryId = categoryId;
+        this.categoryDescription = categoryDescription;
         this.publisher = publisher;
         this.bookTitle = bookTitle;
 
@@ -38,8 +37,8 @@ public class Book {
         this.id = id;
     }
 
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
+    public void setCategoryDescription(String categoryDescription) {
+        this.categoryDescription = categoryDescription;
     }
 
     public void setPublisher(String publisher) {
@@ -54,8 +53,8 @@ public class Book {
         return id;
     }
 
-    public int getCategoryId() {
-        return categoryId;
+    public String getCategoryDescription() {
+        return categoryDescription;
     }
 
     public String getPublisher() {
@@ -79,7 +78,16 @@ public class Book {
         StringBuilder bookString = new StringBuilder();
         bookString.append("ID: "+ this.getId()+" -");
         bookString.append("Title: "+ this.getBookTitle()+" -");
+        bookString.append("Description: "+this.getCategoryDescription()+ " -");
         bookString.append("Publisher: "+ this.getPublisher()+" -");
         return bookString.toString();
+    }
+
+    public ArrayList<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(ArrayList<Category> categories) {
+        this.categories = categories;
     }
 }
