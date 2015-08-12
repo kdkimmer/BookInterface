@@ -4,6 +4,7 @@ import com.springapp.mvc.model.Book;
 import com.springapp.mvc.model.Category;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
@@ -38,4 +39,15 @@ public class BookController {
 		model.addAttribute("category", categories);
 		return "category";
 	}
+	//adding in the form add book this is how we get information off the page
+//	@RequestMapping(value = "/", method = RequestMethod.POST)
+//	public String addBook(ModelMap model){
+//		model.addAttribute("person",new Person());
+//
+//		return"addbook";
+//	}
+//	@RequestMapping(value = "/add-book", method = RequestMethod.POST)
+//	public String persistBook(@ModelAttribute ("person")Person person){
+//
+//	}
 }

@@ -9,13 +9,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"/>
     <title></title>
 </head>
 <body>
 <h1>${message}</h1>
 
 <h2><a href="/">Back to Index</a></h2>
-<table border="1" align="center" style="width:50%">
+<table class="table table-striped">
     <thead>
     <tr>
         <th>ID</th>
@@ -23,6 +25,7 @@
         <th>Publisher</th>
         <th>Category</th>
         <th>Authors</th>
+        <th>BookCover</th>
         <th></th>
     </tr>
     </thead>
@@ -44,6 +47,7 @@
                     <tr>${author.firstName}<%=" "%></tr>
                     <tr>${author.lastName}</tr>
                 </table>
+                <td><img src="images/A9781430244226-small_2.png" </td>
             </c:forEach></td>
 
             <td></td>
@@ -52,6 +56,8 @@
     </tbody>
 </table>
 
+<script src="js/jquery.min.js"/>
+<script src="js/bootstrap.min.js"/>
 </body>
 </html>
 
